@@ -1,23 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
+import IMCForm from './components/IMCForm/IMCForm';
+import { useEffect } from 'react';
 
 function App() {
+  useEffect(()=>{
+    document.title = "IMC";
+  },[])
   return (
     <div className="App">
-      <header className="App-header">
+      <header className="App-header" title="IMC">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
+      <body className="App-body">
+      <IMCForm />
+      </body>
     </div>
   );
 }
