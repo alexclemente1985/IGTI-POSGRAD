@@ -1,0 +1,17 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    .lottie-carousel{
+        max-width: 900px;
+
+
+        .slick-prev:before, .slick-next:before {
+            color: #3d3d3d;
+        }
+
+    }
+}
+
