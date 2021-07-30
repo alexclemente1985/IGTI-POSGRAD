@@ -5,7 +5,6 @@
     },
     "extends": [
         "plugin:react/recommended",
-        "airbnb",
         "airbnb-base",
         "prettier"
     ],
@@ -27,7 +26,9 @@
             {
                 "extensions": [
                     ".jsx",
-                    ".js"
+                    ".js",
+                    ".ts",
+                    ".tsx"
                 ]
             }
         ],
@@ -44,7 +45,7 @@
         "import/order": "off",
         "import/extensions": "off",
         "import/no-unresolved": "off",
-        "react/jsx-filename-extension": "off",
-        "no-unused-expressions": "off"
+        "no-unused-expressions": "off",
+        "react/jsx-key": "off"
     }
 }
