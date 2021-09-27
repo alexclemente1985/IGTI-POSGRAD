@@ -1,0 +1,20 @@
+export default {
+  icon_libs: {
+    ANT_DESIGN_ICON: 'AntDesignIcon',
+    ENTYPO_ICON: 'EntypoIcon',
+    EVIL_ICONS_ICON: 'EvilIconsIcon',
+    FEATHER: 'Feather',
+    FONT_AWESOME: 'FontAwesome',
+    FONT_AWESOME5: 'FontAwesome5',
+    FONT_AWESOME_5_PRO: 'FontAwesome5Pro',
+    FONTISTO: 'Fontisto',
+    FOUNDATION: 'Foundation',
+    ICON: 'Icon',
+    IONICONS: 'Ionicons',
+    MATERIAL_COMMUNITY_ICONS: 'MaterialCommunityIcons',
+    MATERIAL_ICONS: 'MaterialIcons',
+    OCTICONS: 'Octicons',
+    SIMPLE_LINE_ICONS: 'SimpleLineIcons',
+    ZOCIAL: 'Zocial',
+  },
+};
