@@ -2,7 +2,7 @@ import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {AddGuardiansScreen} from '../pages/AddGuardiansScreen';
 import {CallsHistoryScreen} from '../pages/CallsHistoryScreen';
-import {CameraScreen} from '../pages/CameraScreen';
+import {WatchedUsersScreen} from '../pages/WatchedUsersScreen';
 import {HomeScreen} from '../pages/HomeScreen';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Header from '../components/Header';
@@ -13,19 +13,19 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 export function AppRoutes() {
   const HomeStack = createNativeStackNavigator();
   const CallsHistoryStack = createNativeStackNavigator();
-  const CameraStack = createNativeStackNavigator();
+  const WatchedUsersStack = createNativeStackNavigator();
   const AddGuardiansStack = createNativeStackNavigator();
   const SettingsStack = createNativeStackNavigator();
 
   const Tab = createBottomTabNavigator();
 
-  const config = {
+  /*  const config = {
     screens: {
       Home: {
         path: 'home',
       },
     },
-  };
+  }; */
 
   function HomeStackScreen() {
     return (
@@ -61,11 +61,14 @@ export function AppRoutes() {
     );
   }
 
-  function CameraStackScreen() {
+  function WatchedUsersStackScreen() {
     return (
-      <CameraStack.Navigator>
-        <CameraStack.Screen name="Camera" component={CameraScreen} />
-      </CameraStack.Navigator>
+      <WatchedUsersStack.Navigator>
+        <WatchedUsersStack.Screen
+          name="WatchedUsers"
+          component={WatchedUsersScreen}
+        />
+      </WatchedUsersStack.Navigator>
     );
   }
 
@@ -108,7 +111,7 @@ export function AppRoutes() {
         }}
       />
       <Tab.Screen
-        name="Histórico"
+        name="History"
         component={CallsHistoryStackScreen}
         options={{
           tabBarLabel: 'Histórico',
@@ -118,12 +121,12 @@ export function AppRoutes() {
         }}
       />
       <Tab.Screen
-        name="Câmera"
-        component={CameraStackScreen}
+        name="Protected"
+        component={WatchedUsersStackScreen}
         options={{
-          tabBarLabel: 'Câmera',
+          tabBarLabel: 'Usuários',
           tabBarIcon: ({color, size}) => (
-            <Icon name="camera" color={color} size={size} />
+            <Icon name="person-pin" color={color} size={size} />
           ),
         }}
       />
@@ -131,9 +134,9 @@ export function AppRoutes() {
         name="+Guardians"
         component={AddGuardiansStackScreen}
         options={{
-          tabBarLabel: '+ Guardiões',
+          tabBarLabel: 'Guardiões',
           tabBarIcon: ({color, size}) => (
-            <Icon name="person-add" color={color} size={size} />
+            <Icon name="emoji-people" color={color} size={size} />
           ),
         }}
       />

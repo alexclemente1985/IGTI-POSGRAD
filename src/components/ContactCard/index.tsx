@@ -5,14 +5,22 @@ import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIc
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import {colors} from '../../config/Styles/colors';
 import Contacts from 'react-native-contacts';
+import {useDispatch} from 'react-redux';
+import {
+  addGuardianRequest,
+  removeGuardianRequest,
+} from '../../store/Guardians/actions';
+import {useEffect} from 'react';
 
 interface Props {
   contact: Contacts.Contact;
   isAddGuardian?: boolean;
 }
 
-const ContactComponent = (props: Props) => {
+const ContactCard = (props: Props) => {
   const {contact, isAddGuardian} = props;
+
+  const dispatch = useDispatch();
 
   function handlePhoneCall() {
     contact.phoneNumbers.map((phone, index) => {
@@ -24,6 +32,12 @@ const ContactComponent = (props: Props) => {
 
   function handleAddGuardian() {
     console.log('adicionando guardian');
+    dispatch(addGuardianRequest(contact));
+  }
+
+  function handleRemoveGuardian() {
+    console.log('removendo guardian');
+    dispatch(removeGuardianRequest(contact));
   }
 
   function defaultContactRender() {
@@ -69,7 +83,9 @@ const ContactComponent = (props: Props) => {
                 color={colors.blue1}
               />
             </TouchableOpacity>
-            <TouchableOpacity style={styles.icon}>
+            <TouchableOpacity
+              style={styles.icon}
+              onPress={handleRemoveGuardian}>
               <MaterialCommunityIcon
                 name="close-circle-outline"
                 size={25}
@@ -120,4 +136,4 @@ const ContactComponent = (props: Props) => {
   return handleRender();
 };
 
-export default ContactComponent;
+export default ContactCard;

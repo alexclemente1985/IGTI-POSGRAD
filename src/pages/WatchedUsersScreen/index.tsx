@@ -1,10 +1,10 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 
-export function CameraScreen() {
+export function WatchedUsersScreen() {
   return (
     <View>
-      <Text>CameraScreen</Text>
+      <Text>WatchedUsersScreen</Text>
     </View>
   );
 }
