@@ -10,15 +10,15 @@ import {
   addGuardianRequest,
   removeGuardianRequest,
 } from '../../store/Guardians/actions';
-import {useEffect} from 'react';
 
 interface Props {
   contact: Contacts.Contact;
   isAddGuardian?: boolean;
+  navigation: any;
 }
 
 const ContactCard = (props: Props) => {
-  const {contact, isAddGuardian} = props;
+  const {contact, isAddGuardian, navigation} = props;
 
   const dispatch = useDispatch();
 
@@ -40,6 +40,11 @@ const ContactCard = (props: Props) => {
     dispatch(removeGuardianRequest(contact));
   }
 
+  function handleChatButton() {
+    console.log('indo para tela de chat');
+    navigation.navigate('Chat');
+  }
+
   function defaultContactRender() {
     return (
       <View style={styles.container}>
@@ -55,7 +60,7 @@ const ContactCard = (props: Props) => {
             </Text>
           </View>
           <View style={styles.optionsContainer}>
-            <TouchableOpacity style={styles.icon}>
+            <TouchableOpacity style={styles.icon} onPress={handleChatButton}>
               <MaterialCommunityIcon
                 name="message-outline"
                 size={20}

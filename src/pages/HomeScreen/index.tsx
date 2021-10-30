@@ -2,8 +2,8 @@ import React from 'react';
 
 import ContactList from '../../components/ContactList';
 
-const HomeScreen: React.FC = () => {
-  return <ContactList />;
-};
+function HomeScreen({navigation}: any) {
+  return <ContactList navigation={navigation} />;
+}
 
 export {HomeScreen};

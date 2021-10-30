@@ -10,6 +10,7 @@ import ContactCard from '../ContactCard';
 
 interface Props {
   isAddGuardianPage?: boolean;
+  navigation: any;
 }
 
 const ContactList: React.FC<Props> = (props: Props) => {
@@ -17,7 +18,7 @@ const ContactList: React.FC<Props> = (props: Props) => {
     phoneContacts: state.phoneContacts.data,
     guardians: state.guardians.data,
   }));
-  const {isAddGuardianPage} = props;
+  const {isAddGuardianPage, navigation} = props;
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -34,6 +35,7 @@ const ContactList: React.FC<Props> = (props: Props) => {
             key={index}
             contact={contact}
             isAddGuardian={isAddGuardianPage}
+            navigation={navigation}
           />
         ))
       ) : (
@@ -42,7 +44,7 @@ const ContactList: React.FC<Props> = (props: Props) => {
     }
     return guardians && guardians.length > 0 ? (
       guardians.map((contact: PhoneContact, index: number) => (
-        <ContactCard key={index} contact={contact} />
+        <ContactCard key={index} contact={contact} navigation={navigation} />
       ))
     ) : (
       <Text>Sem guardiões adicionados</Text>

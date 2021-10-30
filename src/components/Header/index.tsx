@@ -5,6 +5,7 @@ import styles from './styles';
 import {colors} from '../../config/Styles/colors';
 import CustomStatusBar from '../CustomStatusBar';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 function Header({navigation, route, options, back}: any) {
   const title = getHeaderTitle(options, route.name);
@@ -23,7 +24,11 @@ function Header({navigation, route, options, back}: any) {
         <View style={styles.container}>
           {back && (
             <TouchableOpacity onPress={navigation.goBack}>
-              <Icon name="chevron-left" color={colors.pastel} size={30} />
+              <MaterialCommunityIcon
+                name="arrow-left"
+                size={30}
+                color={colors.pastel}
+              />
             </TouchableOpacity>
           )}
           <View style={styles.userContainer}>

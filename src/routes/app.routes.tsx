@@ -4,11 +4,15 @@ import {AddGuardiansScreen} from '../pages/AddGuardiansScreen';
 import {CallsHistoryScreen} from '../pages/CallsHistoryScreen';
 import {WatchedUsersScreen} from '../pages/WatchedUsersScreen';
 import {HomeScreen} from '../pages/HomeScreen';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {
+  createNativeStackNavigator,
+  NativeStackNavigationOptions,
+} from '@react-navigation/native-stack';
 import Header from '../components/Header';
 import styles from '../styles';
 import {SettingsScreen} from '../pages/SettingsScreen';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import ChatScreen from '../pages/ChatScreen';
 
 export function AppRoutes() {
   const HomeStack = createNativeStackNavigator();
@@ -27,14 +31,28 @@ export function AppRoutes() {
     },
   }; */
 
+  const horizontalAnimation: NativeStackNavigationOptions = {
+    gestureEnabled: true,
+    animation: 'slide_from_left',
+  };
+
   function HomeStackScreen() {
     return (
-      <HomeStack.Navigator>
+      <HomeStack.Navigator screenOptions={horizontalAnimation}>
         <HomeStack.Screen
           name="Home"
           component={HomeScreen}
           options={{
             title: 'Olá,  Usuário!',
+            header: Header,
+            contentStyle: styles.container,
+          }}
+        />
+        <HomeStack.Screen
+          name="Chat"
+          component={ChatScreen}
+          options={{
+            title: 'Chat',
             header: Header,
             contentStyle: styles.container,
           }}
